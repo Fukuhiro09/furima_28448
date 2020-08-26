@@ -40,7 +40,6 @@ users　テーブル
 
 - has＿many：items
 - has＿many：purchase
-- has＿many：user_address
 
 items　テーブル
 
@@ -52,7 +51,7 @@ items　テーブル
 | phone_number          | integer    | null: false                    |
 | user_id               | integer    | null: false, foreign_key: true |
 | name                  | string     | null: false                    |
-| information           | string     | null: false                    |
+| description           | string     | null: false                    |
 | shipping_fee_id       | integer   | null: false                    |
 | sales_status_id       | integer    | null: false                    |
 | scheduled_delivery_id | integer    | null: false                    |
@@ -80,7 +79,8 @@ user_address　テーブル
 
 | Column        | Type        | Options                        |
 | ------------- | ----------  | ------------------------------ |
-| postal_code   | string      | null: false                    |
+| prefecture_id | integer     | null: false                    |
+| postal_code   | string      |                                |
 | city          | string      | null: false                    |
 | house_number  | integer     | null: false                    |
 | building_name | string      | null: false                    |
