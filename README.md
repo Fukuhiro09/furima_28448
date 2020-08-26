@@ -27,7 +27,7 @@ users　テーブル
 
 | Column         | Type   | Options     |
 | ---------------| ------ | ----------- |
-| name           | string | null: false |
+| nickname       | string | null: false |
 | email          | string | null: false |
 | password       | string | null: false |
 | first_name     | string | null: false |
@@ -44,19 +44,19 @@ users　テーブル
 
 items　テーブル
 
-| Column             | Type       | Options                        |
-| -----------------  | -- --------| ------------------------------ |
-| text               | string     | null: false                    |
-| price              | integer    | null: false                    |
-| category           | string     | null: false                    |
-| phone_number       | integer    | null: false                    |
-| user_id            | integer    | null: false, foreign_key: true |
-| item_name          | string     | null: false                    |
-| information        | string     | null: false                    |
-| shipping_fee       | string     | null: false                    |
-| sales_status       | string     | null: false                    |
-| scheduled delivery | string     | null: false                    |
-| prefecture         | string     | null: false                    |
+| Column                | Type       | Options                        |
+| -----------------     | -- --------| ------------------------------ |
+| text                  | string     | null: false                    |
+| price                 | integer    | null: false                    |
+| category_id           | integer       | null: false                    |
+| phone_number          | integer    | null: false                    |
+| user_id               | integer    | null: false, foreign_key: true |
+| name                  | string     | null: false                    |
+| information           | string     | null: false                    |
+| shipping_fee_id       | integer   | null: false                    |
+| sales_status_id       | integer    | null: false                    |
+| scheduled_delivery_id | integer    | null: false                    |
+| prefecture_id         | integer    | null: false                    |
 
 ### Association
 
@@ -84,10 +84,7 @@ user_address　テーブル
 | city          | string      | null: false                    |
 | house_number  | integer     | null: false                    |
 | building_name | string      | null: false                    |
-| user_id       | integer     | null: false, foreign_key: true |
-| item_id       | integer     | null: false, foreign_key: true |
 | purchase_id   | integer     | null: false, foreign_key: true |
 
 ### Association
-- belongs_to : user
 - belongs_to :purchase
