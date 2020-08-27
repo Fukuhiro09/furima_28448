@@ -39,7 +39,7 @@ users　テーブル
 ### Association
 
 - has＿many：items
-- has＿many：purchase
+- has＿many：purchases
 
 items　テーブル
 
@@ -50,7 +50,7 @@ items　テーブル
 | phone_number          | integer    | null: false                    |
 | user_id               | integer    | null: false, foreign_key: true |
 | name                  | string     | null: false                    |
-| description           | string     | null: false                    |
+| description           | text       | null: false                    |
 | shipping_fee_id       | integer    | null: false                    |
 | sales_status_id       | integer    | null: false                    |
 | scheduled_delivery_id | integer    | null: false                    |
@@ -79,7 +79,7 @@ user_address　テーブル
 | Column        | Type        | Options                        |
 | ------------- | ----------  | ------------------------------ |
 | prefecture_id | integer     | null: false                    |
-| postal_code   | string      |                                |
+| postal_code   | string      | null: false                    |
 | city          | string      | null: false                    |
 | house_number  | integer     | null: false                    |
 | building_name | string      | null: false                    |
