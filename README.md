@@ -45,14 +45,13 @@ items　テーブル
 
 | Column                | Type       | Options                        |
 | -----------------     | -- --------| ------------------------------ |
-| text                  | string     | null: false                    |
 | price                 | integer    | null: false                    |
-| category_id           | integer       | null: false                    |
+| category_id           | integer    | null: false                    |
 | phone_number          | integer    | null: false                    |
 | user_id               | integer    | null: false, foreign_key: true |
 | name                  | string     | null: false                    |
 | description           | string     | null: false                    |
-| shipping_fee_id       | integer   | null: false                    |
+| shipping_fee_id       | integer    | null: false                    |
 | sales_status_id       | integer    | null: false                    |
 | scheduled_delivery_id | integer    | null: false                    |
 | prefecture_id         | integer    | null: false                    |
