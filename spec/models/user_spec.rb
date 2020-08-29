@@ -1,45 +1,50 @@
 require 'rails_helper'
+
 RSpec.describe User, type: :model do
   describe 'ユーザー新規登録' do
+  before do
+    @user = FactoryBot.build(:user)
+  end
+
     it "nicknameが空だと登録できない" do
-      user = User.nickname: ""
-      user.valid?
-      expect(user.errors.full_messages).to include("Nickname can't be blank")
+      @user.nickname = ""
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Nickname can't be blank")
     end
-    it "emailが空では登録できない" do
-      user = User.email: ""
-      user.valid?
-      expect(user.errors.full_messages).to include("email can't be blank")
+    it "emailが空で＠を含んでいないと登録できない" do
+      @user.email = ""
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Email can't be blank")
     end
     it "passwordが空では登録できない" do
-      user = User. password:""
-      user.valid?
-      expect(user.errors.full_messages).to include("password can't be blank")
+      @user.password = ""
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Password can't be blank")
     end
     it "first_name" do
-      user = User. first_name: ""
-      user.valid?
-      expect(user.errors.full_messages).to include("first_name can't be blank")
+      @user.first_name = ""
+      @user.valid?
+      expect(@user.errors.full_messages).to include("First name can't be blank")
     end
     it "last_name" do
-      user = User.last_name: ""
-      user.valid?
-      expect(user.errors.full_messages).to include("last_name can't be blank")
+      @user.last_name = ""
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Last name can't be blank")
     end
     it "kana_first" do
-      user = User. kana_first: ""
-      user.valid?
-      expect(user.errors.full_messages).to include("kana_first can't be blank")
+      @user.kana_first_name = ""
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Kana first name can't be blank")
     end
     it "kana_last_name" do
-      user = User. kana_last_name: ""
-      user.valid?
-      expect(user.errors.full_messages).to include(" kana_last_name can't be blank")
+      @user.kana_last_name = ""
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Kana last name can't be blank")
     end
     it "birthday" do
-      user = User. birthday: ""
-      user.valid?
-      expect(user.errors.full_messages).to include("birthday can't be blank")
+      @user.birthday = ""
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Birthday can't be blank")
     end
   end
 end
