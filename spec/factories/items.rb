@@ -1,8 +1,6 @@
 FactoryBot.define do
   factory :item do
-    # trait :image do
-    #   image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'public/images/dog.jpg')) }
-    # end
+    
     product_name          { 'メガネ' }
     info                  { '赤色' }
     category_id           { 'メンズ' }
