@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
   def index
-    @item = Item.order("created_at DESC")
+    @item = Item.order('created_at DESC')
   end
+
   def new
     @item = Item.new
   end
@@ -27,7 +28,7 @@ class ItemsController < ApplicationController
       :shipping_fee_id,
       :prefecture_id,
       :scheduled_delivery_id,
-      :price).merge(user_id: current_user.id)
+      :price
+    ).merge(user_id: current_user.id)
   end
-
 end
