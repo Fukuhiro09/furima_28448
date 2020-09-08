@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
 
   def edit   
   end
-
+    
   def update
     if @item.update(item_params)
        redirect_to items_path(item_params)
