@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_06_032914) do
+ActiveRecord::Schema.define(version: 2020_09_10_072502) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -38,6 +38,13 @@ ActiveRecord::Schema.define(version: 2020_09_06_032914) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "item_orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "item_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_item_orders_on_item_id"
+  end
+
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "product_name", null: false
     t.text "info", null: false
@@ -63,6 +70,28 @@ ActiveRecord::Schema.define(version: 2020_09_06_032914) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_purchases_on_item_id"
+    t.index ["user_id"], name: "index_purchases_on_user_id"
+  end
+
+  create_table "user_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "postal_code", default: "", null: false
+    t.integer "prefecture_id", null: false
+    t.string "city", default: ""
+    t.string "house_number", default: ""
+    t.string "building_name", default: ""
+    t.string "phone_number", default: ""
+    t.bigint "purchase_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["purchase_id"], name: "index_user_addresses_on_purchase_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -82,4 +111,8 @@ ActiveRecord::Schema.define(version: 2020_09_06_032914) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "item_orders", "items"
+  add_foreign_key "purchases", "items"
+  add_foreign_key "purchases", "users"
+  add_foreign_key "user_addresses", "purchases"
 end

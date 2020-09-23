@@ -23,7 +23,7 @@ Things you may want to cover:
 
 * ...
 
-users　テーブル
+users テーブル
 
 | Column         | Type   | Options     |
 | ---------------| ------ | ----------- |
@@ -41,7 +41,7 @@ users　テーブル
 - has＿many：items
 - has＿many：purchases
 
-items　テーブル
+items テーブル
 
 | Column                | Type       | Options                        |
 | -----------------     | -- --------| ------------------------------ |
@@ -61,7 +61,7 @@ items　テーブル
 - has＿one：purchase
 - belongs_to : user
 
-purchase　テーブル
+purchase テーブル
 
 | Column       |  Type       | Options                        |
 | -----------  | ----------- | ------------------------------ |
@@ -74,7 +74,7 @@ purchase　テーブル
 - belongs_to : user
 - belongs_to :item
 
-user_address　テーブル
+user_address テーブル
 
 | Column        | Type        | Options                        |
 | ------------- | ----------  | ------------------------------ |
