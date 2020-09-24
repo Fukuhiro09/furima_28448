@@ -1,5 +1,8 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :show,:destroy]
+  before_action :find_item, only: :order  # 「find_item」を動かすアクションを限定
+
+
   def index
     @items = Item.includes(:user).order('created_at DESC')
   end
@@ -22,7 +25,7 @@ class ItemsController < ApplicationController
 
   def edit   
   end
-
+    
   def update
     if @item.update(item_params)
        redirect_to items_path(item_params)
@@ -43,8 +46,15 @@ class ItemsController < ApplicationController
     def set_item
       @item = Item.find(params[:id])
     end
-  
 
+   
+   
+    private
+   
+    def find_item
+      @item = Item.find(params[:id]) # 購入する商品を特定
+    end
+   
 
   private
 
