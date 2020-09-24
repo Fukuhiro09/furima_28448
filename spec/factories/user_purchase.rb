@@ -5,5 +5,6 @@ FactoryBot.define do
     house_number          { '青山１ー１ー1' }
     phone_number          { '09012345678' }
     prefecture_id         {1}
+    card_token            { 'hoge_00000' }
   end
 end
