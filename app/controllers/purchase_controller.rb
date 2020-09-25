@@ -24,6 +24,10 @@ class PurchaseController < ApplicationController
   def purchase_params
     params.permit(:postal_code, :prefecture_id, :city, :house_number, :building_name, :phone_number, :card_token, :item_id).merge(user_id: current_user.id)
   end
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
+  end
   
   def set_item
     @item = Item.find(params[:item_id])
