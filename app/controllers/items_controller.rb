@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :show,:destroy]
+  before_action :set_item, only: [:edit, :show,:destroy, :update]
   before_action :find_item, only: :order  # 「find_item」を動かすアクションを限定
 
 
