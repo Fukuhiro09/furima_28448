@@ -4,6 +4,7 @@ class PurchaseController < ApplicationController
   before_action :set_item, only: [:index, :create]
 
   def index
+    
   end
 
   def create
